@@ -1,0 +1,68 @@
+//Брейкпоинты
+$mw1: 850px;
+$mw2: 767px;
+$mw3: 700px;
+$mw4: 370px;
+
+.btn {
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 22.5px;
+  text-align: center;
+  background-color: #ff5f60;
+  font-size: 18px;
+  color: #fff;
+}
+
+//==============================
+.mobile-menu {
+  display: none;
+  @media (max-width: $mw3) {
+    &__icon {
+      flex: 0 0 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      span {
+        width: 100%;
+        height: 5px;
+        border-radius: 2px;
+        background-color: #fff;
+        transition: all 0.5s ease 0s;
+      }
+      &.active {
+        span:nth-child(1) {
+          width: 141%;
+          transform: translate(-8px, 17.5px) rotate(45deg);
+        }
+        span:nth-child(2) {
+          width: 0%;
+          transform: translate(20px, 0);
+        }
+        span:nth-child(3) {
+          width: 141%;
+          transform: translate(-8px, -17.5px) rotate(-45deg);
+        }
+      }
+    }
+    &__list {
+      overflow: auto;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: -100%;
+      left: 0;
+      background-color: #6500ff;
+      z-index: 5;
+      transition: top 0.5s ease 0s;
+      &.active {
+        top: 0;
+      }
+    }
+  }
+}
+body.lock {
+  overflow: hidden;
+}
